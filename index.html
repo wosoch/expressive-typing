@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+
+<script type="text/javascript" src="js/jquery-2.2.2.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+
+<link rel="stylesheet" href="css/bootstrap.css">
+
+<style type="text/css">
+*{
+	transition-duration: .25s;
+}
+svg{
+	transition-duration: .1s;
+}
+.letters{
+	position: relative;
+	width:100%;
+	height:100%;
+}
+.added{
+	top: 0px;
+	height: 100px;
+	color: red;
+	margin:0px 5px 0px 0px;
+	display: inline-block;
+	position:relative;
+}
+#insert{
+	width:100%;
+	font-size: 0;
+}
+#color-menu{
+	position: fixed;
+	bottom:0px;
+	left:0px;
+	width:100%;
+	height:20px;
+}
+#color-menu:hover{
+	height:50px;
+}
+</style>
+
+</head>
+<body>
+<div id="insert"></div>
+<div id="color-menu"></div>
+
+<script type="text/javascript">
+
+	var start = 0;
+	var delta = 0;
+	var divValue = 3;
+
+	document.addEventListener("keydown",function(e){
+	    if (start == 0) {
+	        start = (new Date()).getTime();
+	    }
+	})
+
+	document.addEventListener("keyup",function(e){
+	    
+
+	    // [A]
+	    if(e.keyCode == 65){
+	    	if(!start == 0){
+		    	letterWidthCalc()
+		    	newDivA();
+	    	}
+	    }else if(e.keyCode == 66){
+	    	if(!start == 0){
+		    	letterWidthCalc()
+		    	newDivB();
+	    	}
+	    }else if(e.keyCode == 67){
+	    	if(!start == 0){
+		    	letterWidthCalc()
+		    	newDivC();
+	    	}
+	    }else if(e.keyCode == 68){
+	    	if(!start == 0){
+		    	letterWidthCalc()
+		    	newDivD();
+	    	}
+	    }else if(e.keyCode == 69){
+	    	if(!start == 0){
+		    	letterWidthCalc()
+		    	newDivE();
+	    	}
+	    }else if(e.keyCode == 70){
+	    	if(!start == 0){
+		    	letterWidthCalc()
+		    	newDivF();
+	    	}
+	    }else if(e.keyCode == 71){
+	    	if(!start == 0){
+		    	letterWidthCalc()
+		    	newDivG();
+	    	}
+	    }else if(e.keyCode == 72){
+	    	if(!start == 0){
+		    	letterWidthCalc()
+		    	newDivH();
+	    	}
+	    }else if(e.keyCode == 73){
+	    	if(!start == 0){
+		    	letterWidthCalc()
+		    	newDivI();
+	    	}
+	    }else if(e.keyCode == 74){
+	    	if(!start == 0){
+		    	letterWidthCalc()
+		    	newDivJ();
+	    	}
+	    }else if(e.keyCode == 75){
+	    	if(!start == 0){
+		    	letterWidthCalc()
+		    	newDivK();
+	    	}
+	    }else if(e.keyCode == 76){
+	    	if(!start == 0){
+		    	letterWidthCalc()
+		    	newDivL();
+	    	}
+	    }else if(e.keyCode == 77){
+	    	if(!start == 0){
+		    	letterWidthCalc()
+		    	newDivM();
+	    	}
+	    }else if(e.keyCode == 78){
+	    	if(!start == 0){
+		    	letterWidthCalc()
+		    	newDivN();
+	    	}
+	    }else if(e.keyCode == 79){
+	    	if(!start == 0){
+		    	letterWidthCalc()
+		    	newDivO();
+	    	}
+	    }else if(e.keyCode == 80){
+	    	if(!start == 0){
+		    	letterWidthCalc()
+		    	newDivP();
+	    	}
+	    }else if(e.keyCode == 81){
+	    	if(!start == 0){
+		    	letterWidthCalc()
+		    	newDivQ();
+	    	}
+	    }else if(e.keyCode == 82){
+	    	if(!start == 0){
+		    	letterWidthCalc()
+		    	newDivR();
+	    	}
+	    }else if(e.keyCode == 83){
+	    	if(!start == 0){
+		    	letterWidthCalc()
+		    	newDivS();
+	    	}
+	    }else if(e.keyCode == 84){
+	    	if(!start == 0){
+		    	letterWidthCalc()
+		    	newDivT();
+	    	}
+	    }else if(e.keyCode == 85){
+	    	if(!start == 0){
+		    	letterWidthCalc()
+		    	newDivU();
+	    	}
+	    }else if(e.keyCode == 86){
+	    	if(!start == 0){
+		    	letterWidthCalc()
+		    	newDivV();
+	    	}
+	    }else if(e.keyCode == 87){
+	    	if(!start == 0){
+		    	letterWidthCalc()
+		    	newDivW();
+	    	}
+	    }else if(e.keyCode == 88){
+	    	if(!start == 0){
+		    	letterWidthCalc()
+		    	newDivX();
+	    	}
+	    }else if(e.keyCode == 89){
+	    	if(!start == 0){
+		    	letterWidthCalc()
+		    	newDivY();
+	    	}
+	    }else if(e.keyCode == 90){
+	    	if(!start == 0){
+		    	letterWidthCalc()
+		    	newDivZ();
+	    	}
+	    }else if(e.keyCode == 32){
+	    	if(!start == 0){
+		    	letterWidthCalc()
+		    	newDivSpace();
+	    	}
+	    }else if(e.keyCode == 8){
+
+	    	//ERASE
+
+	    	if(letterID !== 1){
+		    	document.querySelector("#letterID_" + (letterID-1)).remove();
+				letterID -= 1;
+				start = 0;
+			}else if(letterID == 1){
+				start = 0;
+				console.log('none')
+			};
+	    }else if(e.keyCode == 13 || e.keyCode == 37 || e.keyCode == 38 || e.keyCode == 39 || e.keyCode == 40){
+	    	
+	    	//COLOR CHANGER
+	    	colorChanger();
+	    	start = 0;
+	    }else if(e.keyCode == 27){
+	    	
+	    	//ERASE EVERYTHING
+	    	if (confirm('restart?')) {
+			    location.reload();
+			} else {
+			}
+	    	start = 0;
+	    };
+	});
+
+	// new div
+	var letterID = 1;
+	function letterWidthCalc(){
+		window.delta = (new Date()).getTime() - start;
+		start = 0;
+	}
+	function newDivA () {
+
+    	var ok = true;
+
+    	if (ok === true) {
+       		var div = document.createElement('div');
+       		div.className = "added";
+       		div.id = "letterID_" + letterID;
+	       	letterID += 1;
+       		div.style.width = delta / divValue +"px";
+       		div.innerHTML = "<div class='letters'><svg preserveAspectRatio='none' width='100%' height='100%' viewBox='0 0 100 100' style='position:absolute; fill:" + currentColor + "'><path d='M23.51,100H0L35.4,0h29L100,100H74.38L68.19,81.35H29.7ZM48.89,23.67,36.14,62h25.5Z'/></svg></div>";
+       		document.querySelector('#insert').appendChild(div); // add it to any dom element you want
+    	}
+	};
+	function newDivB () {
+
+    	var ok = true;
+
+    	if (ok === true) {
+       		var div = document.createElement('div');
+       		div.className = "added";
+       		div.id = "letterID_" + letterID;
+	       	letterID += 1;
+       		div.style.width = delta / divValue +"px";
+       		div.innerHTML = "<div class='letters'><svg preserveAspectRatio='none' width='100%' height='100%' viewBox='0 0 100 100' style='position:absolute; fill:" + currentColor + "'><path d='M0,0H61C89.18,0,97.79,14.15,97.79,27.12c0,11.37-3.89,17.07-13.6,21.3C93.9,52,100,57.67,100,71.3c0,16.8-8.88,28.7-38.83,28.7H0ZM58.95,38.62c9.58,0,12.9-1.59,12.9-8.6,0-6.08-2.77-8.73-12.76-8.73H27.19V38.62ZM27.19,78.7H60.05c10.55,0,13.6-3.57,13.6-10.31s-3.19-9.93-14.29-9.93H27.19Z'/></svg></div>";
+       		document.querySelector('#insert').appendChild(div); // add it to any dom element you want
+    	}
+	};
+	function newDivC () {
+
+    	var ok = true;
+
+    	if (ok === true) {
+       		var div = document.createElement('div');
+       		div.className = "added";
+       		div.id = "letterID_" + letterID;
+	       	letterID += 1;
+       		div.style.width = delta / divValue +"px";
+       		div.innerHTML = "<div class='letters'><svg preserveAspectRatio='none' width='100%' height='100%' viewBox='0 0 100 100' style='position:absolute; fill:" + currentColor + "'><path d='M0,49.74C0,21.06,21.33,0,52.67,0,77.07,0,90.27,10,98.27,24.87L76.67,37.31C72.13,26.65,64.8,21.57,53.07,21.57c-15.6,0-26,9.39-26,28S37.74,78.3,53.34,78.3c12.13,0,20.13-7,24.39-16.63L100,74.24C91.6,88.58,78.41,100,53.34,100,18.53,100,0,78.42,0,49.74Z'/></svg></div>";
+       		document.querySelector('#insert').appendChild(div); // add it to any dom element you want
+    	}
+	};
+	function newDivD () {
+
+    	var ok = true;
+
+    	if (ok === true) {
+       		var div = document.createElement('div');
+       		div.className = "added";
+       		div.id = "letterID_" + letterID;
+	       	letterID += 1;
+       		div.style.width = delta / divValue +"px";
+       		div.innerHTML = "<div class='letters'><svg preserveAspectRatio='none' width='100%' height='100%' viewBox='0 0 100 100' style='position:absolute; fill:" + currentColor + "'><path d='M0,0H44.85C78.59,0,100,18.12,100,49.21,100,79.36,80.62,100,44.17,100H0ZM46.34,78.7c15.71,0,26.15-9.26,26.15-28.83,0-19.84-11-28.57-26.43-28.57H26.56V78.7Z'/></svg></div>";
+       		document.querySelector('#insert').appendChild(div); // add it to any dom element you want
+    	}
+	};
+	function newDivE () {
+
+    	var ok = true;
+
+    	if (ok === true) {
+       		var div = document.createElement('div');
+       		div.className = "added";
+       		div.id = "letterID_" + letterID;
+	       	letterID += 1;
+       		div.style.width = delta / divValue +"px";
+       		div.innerHTML = "<div class='letters'><svg preserveAspectRatio='none' width='100%' height='100%' viewBox='0 0 100 100' style='position:absolute; fill:" + currentColor + "'><path d='M0,0H97.32V19.74H29.21V38.82h51V58.56h-51V80H100v20.14H0Z'/></svg></div>";
+       		document.querySelector('#insert').appendChild(div); // add it to any dom element you want
+    	}
+	};
+	function newDivF () {
+
+    	var ok = true;
+
+    	if (ok === true) {
+       		var div = document.createElement('div');
+       		div.className = "added";
+       		div.id = "letterID_" + letterID;
+	       	letterID += 1;
+       		div.style.width = delta / divValue +"px";
+       		div.innerHTML = "<div class='letters'><svg preserveAspectRatio='none' width='100%' height='100%' viewBox='0 0 100 100' style='position:absolute; fill:" + currentColor + "'><path d='M0,0H100V19.71H30V41.4H85.46V61.11H30V100H0Z'/></svg></div>";
+       		document.querySelector('#insert').appendChild(div); // add it to any dom element you want
+    	}
+	};
+	function newDivG () {
+
+    	var ok = true;
+
+    	if (ok === true) {
+       		var div = document.createElement('div');
+       		div.className = "added";
+       		div.id = "letterID_" + letterID;
+	       	letterID += 1;
+       		div.style.width = delta / divValue +"px";
+       		div.innerHTML = "<div class='letters'><svg preserveAspectRatio='none' width='100%' height='100%' viewBox='0 0 100 100' style='position:absolute; fill:" + currentColor + "'><path d='M0,50.87C0,21,19.3,0,52.26,0,75.06,0,89,7.63,96.87,20.47L77.06,33.19c-5-7.38-11.77-11.83-24.94-11.83-16.78,0-26.69,11.06-26.69,29.38S35.09,79.11,54,79.11C71.3,79.11,77.7,65.88,77.7,61.3v-.51H57.39V41.46H100V97.93H87.59L83.71,85.59c-7.14,8.91-16.54,14.63-33,14.63C20,100.22,0,79.11,0,50.87Z'/></svg></div>";
+       		document.querySelector('#insert').appendChild(div); // add it to any dom element you want
+    	}
+	};	
+	function newDivH () {
+
+    	var ok = true;
+
+    	if (ok === true) {
+       		var div = document.createElement('div');
+       		div.className = "added";
+       		div.id = "letterID_" + letterID;
+	       	letterID += 1;
+       		div.style.width = delta / divValue +"px";
+       		div.innerHTML = "<div class='letters'><svg preserveAspectRatio='none' width='100%' height='100%' viewBox='0 0 100 100' style='position:absolute; fill:" + currentColor + "'><path d='M26.37,58.74V100H0V0H26.37V37.7H73.61V0H100V100H73.61V58.74Z'/></svg></div>";
+       		document.querySelector('#insert').appendChild(div); // add it to any dom element you want
+    	}
+	};
+	function newDivI () {
+
+    	var ok = true;
+
+    	if (ok === true) {
+       		var div = document.createElement('div');
+       		div.className = "added";
+       		div.id = "letterID_" + letterID;
+	       	letterID += 1;
+       		div.style.width = delta / divValue +"px";
+       		div.innerHTML = "<div class='letters'><svg preserveAspectRatio='none' width='100%' height='100%' viewBox='0 0 100 100' style='position:absolute; fill:" + currentColor + "'><path d='M20,0H78.74V100H20Z'/></svg></div>";
+       		document.querySelector('#insert').appendChild(div); // add it to any dom element you want
+    	}
+	};
+	function newDivJ () {
+
+    	var ok = true;
+
+    	if (ok === true) {
+       		var div = document.createElement('div');
+       		div.className = "added";
+       		div.id = "letterID_" + letterID;
+	       	letterID += 1;
+       		div.style.width = delta / divValue +"px";
+       		div.innerHTML = "<div class='letters'><svg preserveAspectRatio='none' width='100%' height='100%' viewBox='0 0 100 100' style='position:absolute; fill:" + currentColor + "'><path d='M0,60.51V55.34H31.55v2.58c0,13.28,2.5,20.25,18.36,20.25,15.36,0,17.36-9.41,17.36-22.19V0H100V58.56c0,29.55-18,41.28-50.09,41.28C15.52,99.84,0,84.37,0,60.51Z'/></svg></div>";
+       		document.querySelector('#insert').appendChild(div); // add it to any dom element you want
+    	}
+	};
+	function newDivK () {
+
+    	var ok = true;
+
+    	if (ok === true) {
+       		var div = document.createElement('div');
+       		div.className = "added";
+       		div.id = "letterID_" + letterID;
+	       	letterID += 1;
+       		div.style.width = delta / divValue +"px";
+       		div.innerHTML = "<div class='letters'><svg preserveAspectRatio='none' width='100%' height='100%' viewBox='0 0 100 100' style='position:absolute; fill:" + currentColor + "'><path d='M64.78,0H93.16L54.42,41.21l45.09,59.6H68.41L37.32,59.34,25.4,72v28.81H0V0H25.4V42.4Z'/></svg></div>";
+       		document.querySelector('#insert').appendChild(div); // add it to any dom element you want
+    	}
+	};
+	function newDivL () {
+
+    	var ok = true;
+
+    	if (ok === true) {
+       		var div = document.createElement('div');
+       		div.className = "added";
+       		div.id = "letterID_" + letterID;
+	       	letterID += 1;
+       		div.style.width = delta / divValue +"px";
+       		div.innerHTML = "<div class='letters'><svg preserveAspectRatio='none' width='100%' height='100%' viewBox='0 0 100 100' style='position:absolute; fill:" + currentColor + "'><path d='M0,0H32.89V79.36H100V100H0Z'/></svg></div>";
+       		document.querySelector('#insert').appendChild(div); // add it to any dom element you want
+    	}
+	};
+	function newDivM () {
+
+    	var ok = true;
+
+    	if (ok === true) {
+       		var div = document.createElement('div');
+       		div.className = "added";
+       		div.id = "letterID_" + letterID;
+	       	letterID += 1;
+       		div.style.width = delta / divValue +"px";
+       		div.innerHTML = "<div class='letters'><svg preserveAspectRatio='none' width='100%' height='100%' viewBox='0 0 100 100' style='position:absolute; fill:" + currentColor + "'><path d='M0,0H29.7L49.78,65.61,70.06,0H100V100H78.59V32.93L56.83,100H41.25L19.73,32.93V100H0Z'/></svg></div>";
+       		document.querySelector('#insert').appendChild(div); // add it to any dom element you want
+    	}
+	};
+	function newDivN () {
+
+    	var ok = true;
+
+    	if (ok === true) {
+       		var div = document.createElement('div');
+       		div.className = "added";
+       		div.id = "letterID_" + letterID;
+	       	letterID += 1;
+       		div.style.width = delta / divValue +"px";
+       		div.innerHTML = "<div class='letters'><svg preserveAspectRatio='none' width='100%' height='100%' viewBox='0 0 100 100' style='position:absolute; fill:" + currentColor + "'><path d='M0,0H34L75.72,66.93,74.76,0H100V100H68.58L24.14,29.36,25.23,100H0Z'/></svg></div>";
+       		document.querySelector('#insert').appendChild(div); // add it to any dom element you want
+    	}
+	};
+	function newDivO () {
+
+    	var ok = true;
+
+    	if (ok === true) {
+       		var div = document.createElement('div');
+       		div.className = "added";
+       		div.id = "letterID_" + letterID;
+	       	letterID += 1;
+       		div.style.width = delta / divValue +"px";
+       		div.innerHTML = "<div class='letters'><svg preserveAspectRatio='none' width='100%' height='100%' viewBox='0 0 100 100' style='position:absolute; fill:" + currentColor + "'><path d='M0,49.84C0,21.1,22.67,0,50,0s50,19.19,50,49.07c0,29-20.35,51.11-50.61,51.11C19.37,100.18,0,78.57,0,49.84Zm75.12-.12c0-18.7-10.42-28.23-25.24-28.23s-25,9.53-25,28.23,10,28.48,25.24,28.48S75.12,68.14,75.12,49.71Z'/></svg></div>";
+       		document.querySelector('#insert').appendChild(div); // add it to any dom element you want
+    	}
+	};
+	function newDivP () {
+
+    	var ok = true;
+
+    	if (ok === true) {
+       		var div = document.createElement('div');
+       		div.className = "added";
+       		div.id = "letterID_" + letterID;
+	       	letterID += 1;
+       		div.style.width = delta / divValue +"px";
+       		div.innerHTML = "<div class='letters'><svg preserveAspectRatio='none' width='100%' height='100%' viewBox='0 0 100 100' style='position:absolute; fill:" + currentColor + "'><path d='M28.86,100H0V0H59.79C88.66,0,100,13.23,100,32.67,100,50.13,88.8,63.1,62.89,63.1h-34ZM58,42.33c11.06,0,14-3.85,14-10.85,0-6.23-3.09-10.19-13.84-10.19H28.86v21Z'/></svg></div>";
+       		document.querySelector('#insert').appendChild(div); // add it to any dom element you want
+    	}
+	};
+	function newDivQ () {
+
+    	var ok = true;
+
+     	if (ok === true) {
+       		var div = document.createElement('div');
+       		div.className = "added";
+       		div.id = "letterID_" + letterID;
+	       	letterID += 1;
+       		div.style.width = delta / divValue +"px";
+       		div.innerHTML = "<div class='letters'><svg preserveAspectRatio='none' width='100%' height='100%' viewBox='0 0 100 100' style='position:absolute; fill:" + currentColor + "'><path d='M100,85.31,81.38,100,66,85a57.34,57.34,0,0,1-17.9,2.66C18.86,87.65,0,68.74,0,43.6S22.08,0,48.69,0,97.38,16.79,97.38,42.93a43,43,0,0,1-11,29.25ZM73.15,43.49c0-16.36-10.14-24.7-24.58-24.7s-24.35,8.34-24.35,24.7S34,68.41,48.8,68.41,73.15,59.61,73.15,43.49Z'/></svg></div>";
+       		document.querySelector('#insert').appendChild(div); // add it to any dom element you want
+    	}
+	};
+	function newDivR () {
+
+    	var ok = true;
+
+    	if (ok === true) {
+       		var div = document.createElement('div');
+       		div.className = "added";
+       		div.id = "letterID_" + letterID;
+	       	letterID += 1;
+       		div.style.width = delta / divValue +"px";
+       		div.innerHTML = "<div class='letters'><svg preserveAspectRatio='none' width='100%' height='100%' viewBox='0 0 100 100' style='position:absolute; fill:" + currentColor + "'><path d='M27.34,100H0V0H59.27c27.89,0,39.9,10.45,39.9,29.63,0,15.35-8.65,21.83-19,24.74,6.14,1.45,11.44,5.29,13.25,9.79,2.93,7.4,2.93,18,4,26.85.56,4.36,1.4,7.14,2.51,8.07V100H72.11c-.84-3-1.53-7.41-2.09-20.11C69.6,68.12,64.44,64,51.19,64H27.34ZM57.18,43.25c10.88,0,14.92-4.23,14.92-11.64,0-7.14-4.18-10.32-14.79-10.32h-30v22Z'/></svg></div>";
+       		document.querySelector('#insert').appendChild(div); // add it to any dom element you want
+    	}
+	};
+	function newDivS () {
+
+    	var ok = true;
+
+    	if (ok === true) {
+       		var div = document.createElement('div');
+       		div.className = "added";
+       		div.id = "letterID_" + letterID;
+	       	letterID += 1;
+       		div.style.width = delta / divValue +"px";
+       		div.innerHTML = "<div class='letters'><svg preserveAspectRatio='none' width='100%' height='100%' viewBox='0 0 100 100' style='position:absolute; fill:" + currentColor + "'><path d='M0,81.47,17.74,66.88C25,74.74,36.73,80.2,53,80.2c14.72,0,20.5-2.79,20.5-9,0-6.85-5.37-8-24.22-10.41-20.5-2.67-45.4-6.73-45.4-30.71C3.84,9.52,21.73,0,48.69,0,72.08,0,86.11,5.84,97,16.49L80.33,31.09C75.65,25.5,66,19.28,49.65,19.28c-14.3,0-19.95,2.54-19.95,8.64,0,6.47,5.65,7.86,25.45,10C76.61,40.35,100,45.56,100,68.78,100,89.73,85.28,100,53.37,100,27.23,100,11.28,92.77,0,81.47Z'/></svg></div>";
+       		document.querySelector('#insert').appendChild(div); // add it to any dom element you want
+    	}
+	};
+	function newDivT () {
+
+    	var ok = true;
+
+    	if (ok === true) {
+       		var div = document.createElement('div');
+       		div.className = "added";
+       		div.id = "letterID_" + letterID;
+	       	letterID += 1;
+       		div.style.width = delta / divValue +"px";
+       		div.innerHTML = "<div class='letters'><svg preserveAspectRatio='none' width='100%' height='100%' viewBox='0 0 100 100' style='position:absolute; fill:" + currentColor + "'><path d='M0,20.64V0H99.91V20.64H65.42V100h-29V20.64Z'/></svg></div>";
+       		document.querySelector('#insert').appendChild(div); // add it to any dom element you want
+    	}
+	};
+	function newDivU () {
+
+    	var ok = true;
+
+    	if (ok === true) {
+       		var div = document.createElement('div');
+       		div.className = "added";
+       		div.id = "letterID_" + letterID;
+	       	letterID += 1;
+       		div.style.width = delta / divValue +"px";
+       		div.innerHTML = "<div class='letters'><svg preserveAspectRatio='none' width='100%' height='100%' viewBox='0 0 100 100' style='position:absolute; fill:" + currentColor + "'><path d='M0,57.5V0H27.11V56.08c0,15.5,4.84,21.58,23,21.58,17.84,0,22.82-6.08,22.82-21.58V0H100V57.5C100,87.21,80.5,100,49.93,100,17.29,100,0,85.79,0,57.5Z'/></svg></div>";
+       		document.querySelector('#insert').appendChild(div); // add it to any dom element you want
+    	}
+	};
+	function newDivV () {
+
+    	var ok = true;
+
+    	if (ok === true) {
+       		var div = document.createElement('div');
+       		div.className = "added";
+       		div.id = "letterID_" + letterID;
+	       	letterID += 1;
+       		div.style.width = delta / divValue +"px";
+       		div.innerHTML = "<div class='letters'><svg preserveAspectRatio='none' width='100%' height='100%' viewBox='0 0 100 100' style='position:absolute; fill:" + currentColor + "'><path d='M0,0H26.3L51.61,75.13,75.8,0H100L65.8,100H35.43Z'/></svg></div>";
+       		document.querySelector('#insert').appendChild(div); // add it to any dom element you want
+    	}
+	};
+	function newDivW () {
+
+    	var ok = true;
+
+    	if (ok === true) {
+       		var div = document.createElement('div');
+       		div.className = "added";
+       		div.id = "letterID_" + letterID;
+	       	letterID += 1;
+       		div.style.width = delta / divValue +"px";
+       		div.innerHTML = "<div class='letters'><svg preserveAspectRatio='none' width='100%' height='100%' viewBox='0 0 100 100' style='position:absolute; fill:" + currentColor + "'><path d='M0,0H18.64L30.48,70.51,43.47,0H57.86l14,71.69L83,0h17L81.89,100H61.57L50.26,37.17,38.78,100H18.55Z'/></svg></div>";
+       		document.querySelector('#insert').appendChild(div); // add it to any dom element you want
+    	}
+	};
+	function newDivX () {
+
+    	var ok = true;
+
+    	if (ok === true) {
+       		var div = document.createElement('div');
+       		div.className = "added";
+       		div.id = "letterID_" + letterID;
+	       	letterID += 1;
+       		div.style.width = delta / divValue +"px";
+       		div.innerHTML = "<div class='letters'><svg preserveAspectRatio='none' width='100%' height='100%' viewBox='0 0 100 100' style='position:absolute; fill:" + currentColor + "'><path d='M2.47,0H30.61L50.7,29,70.21,0H95.39L62.88,46.42,100,100H71.87L48.34,66,25.17,100H0L36.28,48.8Z'/></svg></div>";
+       		document.querySelector('#insert').appendChild(div); // add it to any dom element you want
+    	}
+	};
+	function newDivY () {
+
+    	var ok = true;
+
+    	if (ok === true) {
+       		var div = document.createElement('div');
+       		div.className = "added";
+       		div.id = "letterID_" + letterID;
+	       	letterID += 1;
+       		div.style.width = delta / divValue +"px";
+       		div.innerHTML = "<div class='letters'><svg preserveAspectRatio='none' width='100%' height='100%' viewBox='0 0 100 100' style='position:absolute; fill:" + currentColor + "'><path d='M0,0H28.65L51.88,36.77,73.72,0h26.45L63.32,58.2V100H38.14V57.94Z'/></svg></div>";
+       		document.querySelector('#insert').appendChild(div); // add it to any dom element you want
+    	}
+	};
+	function newDivZ () {
+
+    	var ok = true;
+
+    	if (ok === true) {
+       		var div = document.createElement('div');
+       		div.className = "added";
+       		div.id = "letterID_" + letterID;
+	       	letterID += 1;
+       		div.style.width = delta / divValue +"px";
+       		div.innerHTML = "<div class='letters'><svg preserveAspectRatio='none' width='100%' height='100%' viewBox='0 0 100 100' style='position:absolute; fill:" + currentColor + "'><path d='M0,79,64.54,19.66H1.89V0H97.83V20.45L33.43,79.69H100V99.75H0Z'/></svg></div>";
+       		document.querySelector('#insert').appendChild(div); // add it to any dom element you want
+    	}
+	};
+	function newDivSpace () {
+
+    	var ok = true;
+
+    	if (ok === true) {
+       		var div = document.createElement('div');
+       		div.className = "added";
+       		div.id = "letterID_" + letterID;
+	       	letterID += 1;
+       		div.style.width = delta / divValue +"px";
+       		div.innerHTML = "<div class='letters'><svg preserveAspectRatio='none' width='100%' height='100%' viewBox='0 0 100 100' style='position:absolute; opacity:0;'><circle class='cls-1' cx='10.51' cy='10.51' r='10.51'/><circle class='cls-1' cx='89.49' cy='89.49' r='10.51'/></svg></div>";
+       		document.querySelector('#insert').appendChild(div); // add it to any dom element you want
+    	}
+	};
+
+	//color changes
+	var currentColor = "black";
+	var colorRotation = 0;
+
+	// 0 = white black
+	// 1 = blue red
+	// 2 = yellow orange
+	// 3 = cyan green
+	// 4 = black white
+
+	document.querySelector('#color-menu').style['background-color'] = "blue";
+
+//	document.querySelector('#color-menu').addEventListener("mouseover",function(){
+//	})
+//	document.querySelector('#color-menu').addEventListener("mouseout",function(){
+
+//	})
+
+
+	document.querySelector('#color-menu').addEventListener("click",function(){
+		colorChanger();
+	})
+
+	function colorChanger(){
+		console.log(currentColor);
+		if(colorRotation==0){
+			document.querySelector('#color-menu').style['background-color'] = "pink";
+			document.querySelector('body').style['background-color'] = "blue";
+			for(i = 0; i < document.getElementsByTagName('svg').length; i++){
+				document.getElementsByTagName('svg')[i].style.fill = "red";
+			}
+			window.currentColor = "red";
+			colorRotation = 1;
+		}else if(colorRotation==1){
+			document.querySelector('#color-menu').style['background-color'] = "LightGreen";
+			document.querySelector('body').style['background-color'] = "pink";
+
+			for(i = 0; i < document.getElementsByTagName('svg').length; i++){
+				document.getElementsByTagName('svg')[i].style.fill = "Bisque";
+			}
+			window.currentColor = "Bisque";
+			colorRotation = 2;
+		}else if(colorRotation==2){
+			document.querySelector('#color-menu').style['background-color'] = "black";
+			document.querySelector('body').style['background-color'] = "LightGreen";
+
+			for(i = 0; i < document.getElementsByTagName('svg').length; i++){
+				document.getElementsByTagName('svg')[i].style.fill = "yellow";
+			}
+			window.currentColor = "yellow";
+			colorRotation = 3;
+		}else if(colorRotation==3){
+			document.querySelector('#color-menu').style['background-color'] = "white";
+			document.querySelector('body').style['background-color'] = "black";
+			for(i = 0; i < document.getElementsByTagName('svg').length; i++){
+				document.getElementsByTagName('svg')[i].style.fill = "white";
+			}
+			window.currentColor = "white";
+			colorRotation = 4;
+		}else if(colorRotation==4){
+			document.querySelector('#color-menu').style['background-color'] = "black";
+			document.querySelector('body').style['background-color'] = "white";
+			for(i = 0; i < document.getElementsByTagName('svg').length; i++){
+				document.getElementsByTagName('svg')[i].style.fill = "black";
+			}
+			window.currentColor = "black";
+			colorRotation = 0;
+		}
+	}
+
+</script>
+
+</body>
+</html>
